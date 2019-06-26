@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "copy collectd influxdb template"
+cp /etc/collectd/configs/collectd.influxdb.conf.tpl /etc/collectd/collectd.conf.tpl
+
+echo "create config from template file"
+envtpl /etc/collectd/collectd.conf.tpl
+
+echo "starting collectd"
+collectd -f
