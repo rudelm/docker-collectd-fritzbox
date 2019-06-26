@@ -1,0 +1,8 @@
+version: '3'
+services:
+  collectd:
+    build: .
+    env_file:
+      - collectd.env
+    ports:
+      - "25826:25826"
