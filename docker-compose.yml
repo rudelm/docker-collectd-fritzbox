@@ -1,7 +1,8 @@
 version: '3'
 services:
   collectd:
-    build: .
+    #build: .
+    image: rudelm/collectd-fritzbox:latest
     env_file:
       - collectd.env
     ports:
