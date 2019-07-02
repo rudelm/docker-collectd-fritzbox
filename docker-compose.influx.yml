@@ -1,0 +1,17 @@
+version: '3'
+services:
+  collectd:
+    hostname: collectd
+    #build: .
+    image: rudelm/collectd-fritzbox:latest
+    env_file:
+      - collectd.env
+  influxdb:
+    hostname: influxdb
+    image: influxdb:1.7.6-alpine
+    volumes:
+      - /volume1/databases/influxdb-docker:/var/lib/influxdb
+      - /volume1/docker/influxdb.conf:/etc/influxdb/influxdb.conf
+      - /volume1/docker/types.db:/usr/share/collectd/types.db
+    ports:
+      - "8086:8086"
