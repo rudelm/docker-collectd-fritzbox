@@ -1,11 +1,10 @@
-FROM ubuntu:latest
+FROM alpine:latest
 
 MAINTAINER Markus Rudel <rudel.markus+dockerimage@gmail.com>
 
-ENV DEBIAN_FRONTEND noninteractive
+RUN apk update
+RUN apk add collectd collectd-python collectd-network py-pip libxml2-dev libxslt-dev gcc musl-dev python2-dev bash
 
-RUN apt-get -y update
-RUN apt-get -y install collectd curl vim python-pip libxml2-dev libxslt1-dev
 RUN pip install fritzcollectd
 
 ADD configs/ /etc/collectd/configs

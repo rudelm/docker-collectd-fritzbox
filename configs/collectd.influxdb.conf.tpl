@@ -23,7 +23,3 @@ LoadPlugin network
     Verbose "False"
   </Module>
 </Plugin>
-
-<Include "/etc/collectd/collectd.conf.d">
-        Filter "*.conf"
-</Include>
