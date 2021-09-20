@@ -1,13 +1,22 @@
 # Docker container with collectd configured to collect data from Fritzbox
 This docker container is a preconfigured collectd with installed fritzcollectd. I use it on my Synology DS218+ to gather longterm connection statistics of my Fritzbox.
 
+
+```
+Attention: This used to work until AVM released FritzOS 7.28. With this version, this docker container was unable to gather the Data from the Fritzbox.
+```
+
+This repo and its docker container on docker hub aren't maintained anymore. I'm now using a different approach, see [fritzinfluxdb](https://github.com/rudelm/fritzinfluxdb).
+
 ## Setup
 - Install docker
 - Pull the latest image from the Docker registry:
 ```
 docker pull rudelm/collectd-fritzbox
 ```
+
 - Create a user in Fritzbox used by collectd so that the TR-069 interface can be queried:
+
 ```
 Now create a user account in the Fritz!Box for collectd. Go to System, Fritz!Box-user and create a new user with password, who has access from internet disabled. The important part is to enable „Fritz!Box settings“.
 
